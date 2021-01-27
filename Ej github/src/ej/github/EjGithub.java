@@ -21,10 +21,19 @@ public class EjGithub {
         Scanner sc = new Scanner(System.in);
 
         int numeros[] = new int[10];
+        boolean repetido;
+        int num;
 
-        for (int i = 0; i < numeros.length; i++) {
-            System.out.println("Introduce el número de la posición " + (i + 1) + ":");
-            numeros[i] = sc.nextInt();
+         for (int i = 0; i < numeros.length; i++) {
+            do {
+                System.out.println("Introduce el número de la posición " + (i + 1) + ":");
+                num = sc.nextInt();
+                repetido = buscarNumero(numeros, num);
+                if (repetido == true) {
+                    System.out.println("Número repetido, introduzca otro.");
+                }
+            } while (repetido == true);
+            numeros[i] = num;
         }
 
         Arrays.sort(numeros);
@@ -32,6 +41,14 @@ public class EjGithub {
         for (int i = 0; i < numeros.length; i++) {
             System.out.println(numeros[i]);
         }
+    }
+    public static boolean buscarNumero(int num[], int n) {
+        for (int i = 0; i < num.length; i++) {
+            if (num[i] == n) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }
