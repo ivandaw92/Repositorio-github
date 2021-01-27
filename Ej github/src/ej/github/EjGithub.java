@@ -19,12 +19,21 @@ public class EjGithub {
     public static void main(String[] args) {
         // TODO code application logic here
         Scanner sc = new Scanner(System.in);
-
-        int numeros[] = new int[10];
+        
         boolean repetido;
-        int num;
+        int num, cantidadNumeros;
+        
+        do {
+            System.out.println("¿Cuántos números vas a leer? (Max. 10)");
+            cantidadNumeros = sc.nextInt();
+            if (cantidadNumeros < 1 || cantidadNumeros > 10) {
+                System.out.println("Tiene que ser una cantidad del 1 al 10");
+            }
+        } while (cantidadNumeros < 1 || cantidadNumeros > 10);
+        
+        int numeros[] = new int[cantidadNumeros];
 
-         for (int i = 0; i < numeros.length; i++) {
+         for (int i = 0; i < cantidadNumeros; i++) {
             do {
                 System.out.println("Introduce el número de la posición " + (i + 1) + ":");
                 num = sc.nextInt();
@@ -38,7 +47,7 @@ public class EjGithub {
 
         Arrays.sort(numeros);
 
-        for (int i = 0; i < numeros.length; i++) {
+        for (int i = 0; i < cantidadNumeros; i++) {
             System.out.println(numeros[i]);
         }
     }
