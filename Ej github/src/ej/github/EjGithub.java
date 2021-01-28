@@ -51,6 +51,15 @@ public class EjGithub {
             System.out.println(numeros[i]);
         }
         
+
+        boolean validarTam=validarTamaño(numeros,cantidadNumeros);
+        
+     System.out.println("Validación de tamaño:");
+     if(validarTam==true)
+         System.out.println("El tamaño del array es correcto.");
+     else
+        System.out.println("El tamaño del array no es correcto.");
+
         System.out.println("¿Qué número quieres buscar en el array?");
         int numEncontrar=sc.nextInt();
         boolean numEncontrado=encontrarNumero(numeros,numEncontrar);
@@ -67,6 +76,7 @@ public class EjGithub {
                 return true;
         }
         return false;
+
     }
     
     public static boolean buscarNumero(int num[], int n) {
@@ -77,5 +87,11 @@ public class EjGithub {
         }
         return false;
     }
-
+    
+    public static boolean validarTamaño (int num[], int cantidadNum){
+        if (num.length==cantidadNum)
+            return true;
+        else
+            return false;
+    }
 }
