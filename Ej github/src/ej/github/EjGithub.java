@@ -50,7 +50,25 @@ public class EjGithub {
         for (int i = 0; i < cantidadNumeros; i++) {
             System.out.println(numeros[i]);
         }
+        
+        System.out.println("¿Qué número quieres buscar en el array?");
+        int numEncontrar=sc.nextInt();
+        boolean numEncontrado=encontrarNumero(numeros,numEncontrar);
+        if (numEncontrado==true)
+            System.out.println("El número aparece en el array.");
+        else
+            System.out.println("El número no aparece en el array.");
+        
     }
+    
+    public static boolean encontrarNumero(int num[],int n){
+        for(int i=0;i<num.length;i++){
+            if(n==num[i])
+                return true;
+        }
+        return false;
+    }
+    
     public static boolean buscarNumero(int num[], int n) {
         for (int i = 0; i < num.length; i++) {
             if (num[i] == n) {
